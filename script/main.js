@@ -98,15 +98,18 @@ for( let i = 0; i < posts.length; i++){
 }
 let btnHtml = document.querySelectorAll('.like-button');
 let likesCounter = document.querySelectorAll('.js-likes-counter');
+let likeArray = [];
 
 for (let i = 0; i < posts.length; i++) {
 
     const miPiace = posts[i].likes;
+
     btnHtml[i].addEventListener('click',
         function() {
             if (likesCounter[i].innerHTML == miPiace) {
                 posts[i].likes++
                 likesCounter[i].innerHTML++
+                likeArray.push(posts[i].id)
                 console.log(posts[i].likes);
             } else {
                 posts[i].likes--
@@ -117,4 +120,5 @@ for (let i = 0; i < posts.length; i++) {
             btnHtml[i].classList.toggle('like-button--liked');
         }
     );
+    console.log(likeArray)
 }
